@@ -35,6 +35,22 @@
             text-align: center;
         }
 
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         @media(max-width: 400px) {
             form {
                 width: 100%;
@@ -44,15 +60,19 @@
 </head>
 
 <body>
-    <video id="video-background" autoplay muted loop>
-        <source src="https://streamable.com/jzrr8s" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- Streamable Video Background -->
+    <div class="video-container">
+        <iframe 
+            src="https://streamable.com/e/jzrr8s" 
+            allow="fullscreen" 
+            style="width: 100%; height: 100%;">
+        </iframe>
+    </div>
 
     <form action="/" method="post">
         <h2 class="main-t">NOZH LOGIN</h2>
         <div class="box-inp">
-            <input type="password" placeholder="Username" name="username" required>
+            <input type="text" placeholder="Username" name="username" required>
         </div>
         <div class="box-inp">
             <input type="password" placeholder="Password" name="password" required>
@@ -63,7 +83,7 @@
         <p>
             This tool was created by
             <a style="color: #00ff62;" href="https://madhanmaaz.netlify.app/">
-               mongoose (security)
+                mongoose (security)
             </a>
         </p>
     </form>
